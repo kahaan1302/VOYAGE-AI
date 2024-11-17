@@ -44,12 +44,12 @@ function CreateTrip() {
   };
 
   useEffect(() => {
-    console.log(formData);
+    // console.log(formData);
   }, [formData]);
 
   const login = useGoogleLogin({
     onSuccess: (codeResp) => getUserProfile(codeResp),
-    onError: (error) => console.log(error),
+    // onError: (error) => console.log(error),
   });
 
   const onGenerateTrip = async () => {
@@ -67,7 +67,7 @@ function CreateTrip() {
       !formData?.location
     ) {
       toast("Please enter all the details");
-      console.log("Please enter trip days less than 15");
+      // console.log("Please enter trip days less than 15");
       return;
     } else if (formData?.noOfDays > 15) {
       toast("Please enter days less than 15");
@@ -85,7 +85,7 @@ function CreateTrip() {
       .replace("{totalDays}", formData?.noOfDays);
     // console.log(FINAL_PROMPT);
     const result = await chatSession.sendMessage(FINAL_PROMPT);
-    console.log(result?.response?.text());
+    // console.log(result?.response?.text());
     setLoading(false);
     SaveAiTrip(result?.response?.text());
   };
@@ -117,12 +117,12 @@ function CreateTrip() {
         }
       )
       .then((resp) => {
-        console.log(resp);
+        // console.log(resp);
         localStorage.setItem("user", JSON.stringify(resp.data));
         setOpenDialog(false); // Close the dialog on successful login
         onGenerateTrip();
-      })
-      .catch((error) => console.log("Failed to fetch user profile", error));
+      });
+    // .catch((error) => console.log("Failed to fetch user profile", error));
   };
 
   return (

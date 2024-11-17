@@ -29,7 +29,7 @@ function MyTrips() {
       // Collect trips in an array
       const trips = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
+        // console.log(doc.id, " => ", doc.data());
         trips.push(doc.data());
       });
 

@@ -25,12 +25,12 @@ function header() {
   const [openDialog, setOpenDialog] = useState(false);
 
   useEffect(() => {
-    console.log(user);
+    // console.log(user);
   }, []);
 
   const login = useGoogleLogin({
     onSuccess: (codeResp) => getUserProfile(codeResp),
-    onError: (error) => console.log(error),
+    // onError: (error) => console.log(error),
   });
 
   const getUserProfile = (tokenInfo) => {
@@ -45,12 +45,12 @@ function header() {
         }
       )
       .then((resp) => {
-        console.log(resp);
+        // console.log(resp);
         localStorage.setItem("user", JSON.stringify(resp.data));
         setOpenDialog(false); // Close the dialog on successful login
         window.location.reload();
-      })
-      .catch((error) => console.log("Failed to fetch user profile", error));
+      });
+    // .catch((error) => console.log("Failed to fetch user profile", error));
   };
 
   return (
