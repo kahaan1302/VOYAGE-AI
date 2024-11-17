@@ -20,7 +20,7 @@ import { useNavigate, useNavigation } from "react-router-dom";
 import axios from "axios";
 // import { Button } from "@/components/ui/button";
 
-function header() {
+function Header() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [openDialog, setOpenDialog] = useState(false);
 
@@ -130,4 +130,4 @@ function header() {
   );
 }
 
-export default header;
+export default Header;
