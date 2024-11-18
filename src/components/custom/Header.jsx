@@ -30,6 +30,7 @@ function Header() {
 
   const login = useGoogleLogin({
     onSuccess: (codeResp) => getUserProfile(codeResp),
+    // window.location.reload();
     // onError: (error) => console.log(error),
   });
 
